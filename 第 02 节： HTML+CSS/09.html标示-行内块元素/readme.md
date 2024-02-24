@@ -7,3 +7,30 @@
 
 
    功能：用户加强内容显示，控制细节 调试
+
+
+
+
+   元素：
+       input：定义输入控件
+
+           type="text"                    输入框：默认
+           type="password"              密码
+           type='checkbox'              多选按钮
+           type="radio"                 单选按钮
+           type='button' value='登录'>   按钮
+           type='submit' value='登录'>   提交           
+           type='file'                  选取文件
+           type='reset'                 重置
+
+        textarea：文本域   （文字的自由调节框）
+        select  ：定义选择列表（配合option来使用）（下拉选择框）
+        img     ：定义图像
+                  
+
+
+
+
+
+
+
