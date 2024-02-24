@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	.container{
+		border:10px solid #ccc;
+	}
+	.item{
+		width:100px;
+		height: 100px;
+		background: red;
+		float:left;
+	}
+	.clearfix:after{
+		content:"";
+		clear: both;
+		display: block;
+	}
+	</style>
+</head>
+<body>
+
+<div class='container clearfix'>
+	<div class='item'></div>
+	<div class='item'></div>
+	<div class='item'></div>
+</div>
+
+</body>
+</html>

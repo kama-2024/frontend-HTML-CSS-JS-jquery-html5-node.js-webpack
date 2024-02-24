@@ -1,0 +1,21 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+ul,ol{
+	list-style: none;
+}
+
+/*文字颜色*/
+.textColor{
+	color:orange;
+	po
+}
+/*背景颜色*/
+.bgColor{
+	background: #eee;
+}
+
