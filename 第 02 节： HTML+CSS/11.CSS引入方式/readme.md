@@ -41,3 +41,18 @@
            ***rel:规定当前文档与被链接文档之间的关系***
 
     4、导入式
+
+      格式：@import url('style.css')
+
+      a.css
+          @import url('b.css')
+
+          b.css
+
+
+
+
+
+
+
+

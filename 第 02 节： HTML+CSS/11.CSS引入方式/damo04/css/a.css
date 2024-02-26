@@ -1,0 +1,17 @@
+@import url('b.css');
+
+div{
+	background: red;
+}
+
+
+
+
+
+
+
+/*从a.css出发找到的b.css
+
+
+不是index.html出发找到的b.css 所以不用带上文件夹名字css/
+
