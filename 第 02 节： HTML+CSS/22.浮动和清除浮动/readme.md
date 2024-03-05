@@ -16,7 +16,11 @@
 
               不用：多加一个块元素，加入样式 clear:both
               用 ： 需要给父元素加入伪类 affter，样式{
-
+               .g-container:after{
+                   content: "";
+                   clear: both;
+                   display: block;
+               }       
 
 
 

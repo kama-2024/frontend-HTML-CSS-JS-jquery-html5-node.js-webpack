@@ -9,21 +9,28 @@
 			margin: 0;
 			padding: 0;
 		}
-		.g-fixed{
-			position: fixed;
-			right: 5%;
-			top: 50%;
-			width: 100px;
-			height: 100px;
-			background: red;
+		ul{
+			list-style: none;
 		}
-
+		ul li {
+			display: inline-block;
+			width: 300px;
+			height: 100px;
+			margin: 20px;
+			/*border: 2px solid #ccc;*/
+		}
+		.g-list{
+			position: absolute;
+		}
 	</style>
 </head>
-<body style="height: 2000px;">
+<body>
 
-<div class="g-fixed"></div>
-
+<ul>
+	<li>1</li>
+	<li class="g-list">2</li>
+	<li>3</li>
+</ul>
 
 
 </body>
