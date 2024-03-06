@@ -1,0 +1,17 @@
+一、添加事件
+
+	<div onClick
+		 onChange
+		 ...
+二、修改this指向
+
+	onClick={this.xxx.bind(this)}>
+	或者：
+
+三、修改state数据
+
+	this.setState(()=>{
+		return {
+			key:val
+		}
+	})

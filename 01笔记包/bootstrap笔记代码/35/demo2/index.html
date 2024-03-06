@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<h1>工具提示</h1>
+<button id='btn' class='btn btn-info' title='这是一个提示信息' data-toggle="tooltip">按钮</button>
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+$(function(){
+
+	$("#btn").tooltip();
+
+	$('#btn').on('show.bs.tooltip', function () {
+	  	alert(1);
+	})
+
+
+
+
+})
+</script>
+
+</body>
+</html>

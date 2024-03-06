@@ -1,0 +1,34 @@
+router-link配置
+
+	<router-link></router-link>
+
+	一》to:
+		1》to='/home'
+		2》:to='"/home"'
+		3》:to='{path:"/home"}'
+		4》:to='{
+					path:"/home",
+					query:{userId:123}
+				}'
+		5》:to="{ 
+					name: 'user', 
+					params: { userId: 123 }
+				}"
+
+		***补充，如何通过js方式进行跳转
+
+		# router.push
+		# router.replace
+		# router.go
+		# router.back
+		# router.forward
+
+	二》tag：默认为a标记，可以修改
+
+		tag='li'
+		tag='button'
+
+	三、router-link-active：默认触发的class类
+
+****
+官网：https://router.vuejs.org/api/#to

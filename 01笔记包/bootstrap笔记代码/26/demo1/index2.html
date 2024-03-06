@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class='container'>  
+ 
+  <div class='progress'>
+    <div class='progress-bar progress-bar-striped pro' style='width:50%'>
+      50%
+    </div>
+  </div>
+</div>
+
+<button class='btn btn-info'>上传</button>
+
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+  
+  var num = 50;
+
+  $(".btn").click(function(){
+
+    fn();
+
+    $('.pro').addClass("active");
+
+
+  })
+
+  function fn(){
+
+    setInterval(function(){
+        num++;
+        if(num>100)num=100;
+        $(".pro").text(num+"%");
+        $(".pro").css("width",num+"%");
+    },50)
+  }
+
+
+</script>
+</body>
+</html>

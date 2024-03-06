@@ -1,0 +1,14 @@
+一、vuex是什么？==>状态管理
+	
+
+二、vuex使用
+	
+	state ===>放入的数据
+
+		使用数据》
+				1》{{ this.$store.state.cityName }}
+				2》import {mapState} from 'vuex'
+				   computed:mapState(["cityName"])
+				3》computed:{
+						...mapState(['cityName'])
+				    }

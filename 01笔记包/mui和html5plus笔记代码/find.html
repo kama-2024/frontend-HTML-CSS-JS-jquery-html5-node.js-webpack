@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+		.mui-table-view:nth-child(1){
+			margin-bottom:15px;
+		}
+		.mui-table-view:nth-child(2){
+			margin-bottom:15px;
+		}
+		.mui-table-view:nth-child(3){
+			margin-bottom:15px;
+		}
+		.mui-table-view:nth-child(4){
+			margin-bottom:15px;
+		}
+		.find li {
+				line-height: 42px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav header">
+			<h1 class="mui-title">发现</h1>
+		</header>
+		<div class="mui-content find">
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media" id='circle'>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/afe.png">
+						<div class="mui-media-body">
+							朋友圈
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media" id='scan'>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/afg.png">
+						<div class="mui-media-body">
+							扫一扫
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media" id='shake'>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/afh.png">
+						<div class="mui-media-body">
+							摇一摇
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/afd.png">
+						<div class="mui-media-body">
+							附近的人
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+			</ul>
+			
+			
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/shop.png">
+						<div class="mui-media-body">
+							京东购物
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/qn.png">
+						<div class="mui-media-body">
+							游戏
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/game.png">
+						<div class="mui-media-body">
+							小程序	
+						</div>
+						<span class="mui-navigate-right"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				
+				mui("#circle")[0].addEventListener("tap",function(){
+					
+					mui.openWindow({
+						
+						url:'circle.html',
+						id:'circle.html'
+						
+					})
+					
+				})
+				
+				mui("#scan")[0].addEventListener('tap',function(){
+					
+					mui.openWindow({
+						url:"scan.html",
+						id:"scan.html",
+					})
+					
+				})
+				
+				mui('#shake')[0].addEventListener('tap',function(){
+					
+					mui.openWindow({
+						url:"shake.html",
+						id:'shake.html'
+					})
+					
+				})
+				
+				
+				
+				
+				
+				
+			})
+		</script>
+	</body>
+
+</html>

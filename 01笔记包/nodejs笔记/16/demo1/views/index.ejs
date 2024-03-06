@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+
+    <h1><%= title %></h1>
+
+    <b><%= msg %></b>
+
+
+    <img src="/images/1.png" alt="">
+
+    <ul>
+
+        <% arr.forEach((item)=>{ %>
+
+          <li> <%= item %>  </li>
+
+        <% }) %>
+
+    </ul>
+
+  
+  </body>
+</html>

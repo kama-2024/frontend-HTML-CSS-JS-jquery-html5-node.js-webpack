@@ -1,0 +1,19 @@
+修改state数据
+
+	1》store.js
+
+		mutations: {
+			changeStr(state){
+				state.str=456;
+			}
+		}
+
+	2》组件
+		import {mapState,mapMutations } from 'vuex'
+		<button @click='btn'></button>
+		methods:{
+			btn(){
+		          this.changeStr()
+		    },
+		    ...mapMutations(['changeStr'])
+		}

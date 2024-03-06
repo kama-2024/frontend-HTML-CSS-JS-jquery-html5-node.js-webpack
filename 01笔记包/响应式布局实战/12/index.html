@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title></title>
+	<meta name='viewport' content='width=device-width,height=device-height,initial-scale=1.0'>
+</head>
+<style>
+*{margin: 0;padding:0;}
+.container{
+	width:100%;
+	margin:0 auto;
+}
+.container img{
+	width:100%;
+	display: block;
+}
+</style>
+<body>
+
+<div class="container">
+	<!-- <img src="400.jpg"
+	srcset='800.jpg 800w,1600.jpg 1600w'
+	> -->
+
+	<picture>
+			<source srcset="1600.jpg" media="(min-width:50em)">
+
+			<source srcset="800.jpg" media="(min-width: 30em)">
+
+			<img srcset="400.jpg">
+
+	</picture>	
+
+</div>
+
+<script type="text/javascript" src='picturefill.js'></script>
+</body>
+</html>

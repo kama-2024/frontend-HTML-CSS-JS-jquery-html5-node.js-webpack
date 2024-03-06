@@ -1,0 +1,36 @@
+***组件的通信（传值）
+
+	1》父组件   传   子组件
+
+		父组件：
+			<子组件 :变量=数据></子组件>
+		子组件：
+			props:['变量']
+	
+	2》子组件   传   父组件（自定义事件）
+
+		子组件：
+			  this.$emit("自定义事件名称",'值')
+		
+		父组件：
+			<Footer @changeStr='changeBtn'></Footer> 
+			methods:{
+			    changeBtn(s){
+			        console.log(s)
+			    }
+			}
+
+	3》兄弟组件之间的传值
+
+		1》弄一个公共的.js文件（实例化vue）
+		
+		兄弟A:
+			import bus from './bus'
+			bus.$emit("changeaStr",this.aStr)
+		兄弟B：
+			import bus from './bus'
+			bus.$on("changeaStr",function(data){
+				console.log(data)
+			})
+
+***组件的传值，不能跳跃

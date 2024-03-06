@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="panel panel-default">
+	    <div class="panel-heading" id="headingOne">
+	      <h4 class="panel-title">
+	        <a id='oA'>
+	           点击1111111
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="one" class="collapse">
+	      <div class="panel-body">
+	        展示出来的内容111111
+	      </div>
+	    </div>
+	</div>
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+$(function(){
+
+	$("#oA").click(function(){
+
+		$("#one").collapse('show');
+
+	})
+
+})	
+</script>
+</body>
+</html>

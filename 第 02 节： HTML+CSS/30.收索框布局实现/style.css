@@ -1,0 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+.g-container{
+	position:relative;
+	width: 486px;
+	height: 32px;
+	border:2px solid red ;
+	background: #fff;
+}
+.g-form-text{
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	width:315px;
+	padding: 2px 44px 2px;
+
+	border: 0;
+	outline: none;
+	line-height: 28px;
+}
+.search{
+	position: absolute;
+	right: 33px;
+	top: 0px;
+	width: 32px;
+	height: 32px;
+
+}
+.g-form-btn{
+	position: absolute;
+    top: 0;
+    right: 0;
+	width: 32px;
+	height: 32px;
+	border:0;
+	outline: none;
+	background: red;
+	color: #fff;
+}
+.search-list{
+	position: absolute;
+	left: 0;
+	top: 35px;
+	width:428px;
+	border: 1px solid #ccc;
+}
+.search-list li{
+    padding: 5px;
+	line-height: 26px;
+	font-size: 12px;
+}
+.search-list li:hover{
+	background: #f7f7f7;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+	.item{
+		width:100%;
+		height:1200px;
+		border:1px solid #ccc;
+		margin-top:100px;
+	}
+	</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id='nav'>
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li class="active">
+        	<a href="#home">首页 
+        		<span class="sr-only">(current)</span>
+        	</a>
+        </li>
+        <li>
+        	<a href="#list">列表</a>
+        </li>
+
+        <li>
+          <a href="#news">新闻</a>
+        </li>
+
+        <li>
+        	<a href="#ad">广告</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class='container'>
+	
+	<div class='item' id='home'>
+		<h1>首页</h1>
+	</div>
+	<div class='item' id='list'>
+		<h1>列表</h1>
+	</div>
+	<div class='item' id='news'>
+		<h1>新闻</h1>
+	</div>
+	<div class='item' id='ad'> 
+		<h1>广告</h1>
+	</div>
+
+</div>
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+$(function(){
+	$("body").scrollspy({
+		target:"#nav",
+		offset:100
+	});
+
+$('#nav').on('activate.bs.scrollspy',function(){
+
+	alert(1);
+  
+})
+
+
+})
+</script>
+
+</body>
+</html>

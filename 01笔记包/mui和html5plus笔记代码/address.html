@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			.address li {
+				line-height: 42px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav header">
+			<h1 class="mui-title">通讯录</h1>
+		</header>
+
+		<div class="mui-content">
+
+			<div class="mui-input-row mui-search search">
+
+				<input type="search" class="mui-input-speech" placeholder="搜索">
+
+			</div>
+			<ul class="mui-table-view address">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/icon1.jpg">
+						<div class="mui-media-body">
+							新的朋友
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/icon2.jpg">
+						<div class="mui-media-body">
+							群聊
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/icon3.jpg">
+						<div class="mui-media-body">
+							标签
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="img/gzh.png">
+						<div class="mui-media-body">
+							公众号
+						</div>
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" id='address'>
+				
+			</ul>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var str = "";
+				plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(address) {
+
+					address.find(null, function(data) {
+					
+						for(var i = 0; i < data.length; i++) {
+							
+							str += '<li class="mui-table-view-cell">';
+							str += '<a class="mui-navigate-right">';
+							str += '<em>'+data[i].displayName+'</em>==><b>'+data[i].phoneNumbers[0].value+'</b>';
+							str += '</a>';
+							str += '</li>';
+							mui("#address")[0].innerHTML = str;
+						}
+					})
+
+				});
+
+			})
+		</script>
+	</body>
+</html>

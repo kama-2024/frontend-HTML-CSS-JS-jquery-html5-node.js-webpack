@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://www.cnblogs.com/cspku/articles/Git_cmds.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git常用命令 - Vman - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./Git常用命令 - Vman - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Git常用命令 - Vman - 博客园_files/bundle-En_summerGarden.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./Git常用命令 - Vman - 博客园_files/bundle-En_summerGarden-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/vman/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/vman/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/vman/wlwmanifest.xml">
+<script async="" src="./Git常用命令 - Vman - 博客园_files/analytics.js.下载"></script><script src="./Git常用命令 - Vman - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'vman', cb_enable_mathjax=true;var isLogined=false;</script>
+<script src="./Git常用命令 - Vman - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({
+  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  TeX: { equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] },
+  'HTML-CSS': { linebreaks: { automatic: true } },
+  SVG: { linebreaks: { automatic: true } }});</script><script type="text/javascript" src="./Git常用命令 - Vman - 博客园_files/MathJax.js.下载"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?rev=2.6.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/vman/"><img id="blogLogo" src="./Git常用命令 - Vman - 博客园_files/logo.gif" alt="Return Home"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/vman/">思考的足迹</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<!--done-->
+			<ul id="navList">
+				<li></li>
+				<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/vman/">Home</a></li>
+				<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">New Post</a></li>
+				<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Vman">Contact</a></li>
+				<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">Admin</a></li>
+				<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/vman/rss">Rss</a>
+				<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/vman/rss"><img src="./Git常用命令 - Vman - 博客园_files/xml.gif" alt="Rss"></a></li>
+			</ul>
+
+
+		<div class="blogStats">
+			
+			
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/vman/articles/Git_cmds.html">Git常用命令</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p><strong>查看、添加、提交、删除、找回，重置修改文件</strong></p>
+<p>git help &lt;command&gt; # 显示command的help</p>
+<p>git show # 显示某次提交的内容 git show $id</p>
+<p>git co -- &lt;file&gt; # 抛弃工作区修改</p>
+<p>git co . # 抛弃工作区修改</p>
+<p>git add &lt;file&gt; # 将工作文件修改提交到本地暂存区</p>
+<p>git add . # 将所有修改过的工作文件提交暂存区</p>
+<p>git rm &lt;file&gt; # 从版本库中删除文件</p>
+<p>git rm &lt;file&gt; --cached # 从版本库中删除文件，但不删除文件</p>
+<p>git reset &lt;file&gt; # 从暂存区恢复到工作文件</p>
+<p>git reset -- . # 从暂存区恢复到工作文件</p>
+<p>git reset --hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改</p>
+<p>git ci &lt;file&gt; git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　git ci -am "some comments"</p>
+<p>git ci --amend # 修改最后一次提交记录</p>
+<p>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象</p>
+<p>git revert HEAD # 恢复最后一次提交的状态</p>
+<p><strong>查看文件diff</strong></p>
+<p>git diff &lt;file&gt; # 比较当前文件和暂存区文件差异 git diff</p>
+<p>git diff &lt;<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;gt;&amp;lt;&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" role="math" style="width: 4.028em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.177em; height: 0px; font-size: 126%;"><span style="position: absolute; clip: rect(1.477em 1003.12em 2.554em -999.997em); top: -2.321em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-4" style="font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-6" style="font-family: MathJax_Main; padding-left: 0.286em;">&gt;<span style="font-family: MathJax_Main;">&lt;</span></span></span><span style="display: inline-block; width: 0px; height: 2.327em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.075em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi><mi>d</mi><mn>1</mn><mo>&gt;&lt;</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">id1> <</script>id2&gt; # 比较两次提交之间的差异</p>
+<p>git diff &lt;branch1&gt;..&lt;branch2&gt; # 在两个分支之间比较</p>
+<p>git diff --staged # 比较暂存区和版本库差异</p>
+<p>git diff --cached # 比较暂存区和版本库差异</p>
+<p>git diff --stat # 仅仅比较统计信息</p>
+<p><strong>查看提交记录</strong></p>
+<p>git log git log &lt;file&gt; # 查看该文件每次提交记录</p>
+<p>git log -p &lt;file&gt; # 查看每次详细修改内容的diff</p>
+<p>git log -p -2 # 查看最近两次详细修改内容的diff</p>
+<p>git log --stat #查看提交统计信息</p>
+<p><strong>tig</strong></p>
+<p>Mac上可以使用tig代替diff和log，<code>brew install tig</code></p>
+<p><strong>Git 本地分支管理</strong></p>
+<p><strong>查看、切换、创建和删除分支</strong></p>
+<p>git br -r # 查看远程分支</p>
+<p>git br &lt;new_branch&gt; # 创建新的分支</p>
+<p>git br -v # 查看各个分支最后提交信息</p>
+<p>git br --merged # 查看已经被合并到当前分支的分支</p>
+<p>git br --no-merged # 查看尚未被合并到当前分支的分支</p>
+<p>git co &lt;branch&gt; # 切换到某个分支</p>
+<p>git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去</p>
+<p>git co -b &lt;new_branch&gt; &lt;branch&gt; # 基于branch创建新的new_branch</p>
+<p>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</p>
+<p>git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支</p>
+<p>git br -d &lt;branch&gt; # 删除某个分支</p>
+<p>git br -D &lt;branch&gt; # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</p>
+<p><strong>&nbsp;分支合并和rebase</strong></p>
+<p>git merge &lt;branch&gt; # 将branch分支合并到当前分支</p>
+<p>git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交</p>
+<p>git rebase master &lt;branch&gt; # 将master rebase到branch，相当于： git co &lt;branch&gt; &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge &lt;branch&gt;</p>
+<p><strong>&nbsp;Git补丁管理(方便在多台机器上开发同步时用)</strong></p>
+<p>git diff &gt; ../sync.patch # 生成补丁</p>
+<p>git apply ../sync.patch # 打补丁</p>
+<p>git apply --check ../sync.patch #测试补丁能否成功</p>
+<p><strong>&nbsp;Git暂存管理</strong></p>
+<p>git stash # 暂存</p>
+<p>git stash list # 列所有stash</p>
+<p>git stash apply # 恢复暂存的内容</p>
+<p>git stash drop # 删除暂存区</p>
+<p><strong>Git远程分支管理</strong></p>
+<p>git pull # 抓取远程仓库所有分支更新并合并到本地</p>
+<p>git pull --no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并</p>
+<p>git fetch origin # 抓取远程仓库更新</p>
+<p>git merge origin/master # 将远程主分支合并到本地当前分支</p>
+<p>git co --track origin/branch # 跟踪某个远程分支创建相应的本地分支</p>
+<p>git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上</p>
+<p>git push # push所有分支</p>
+<p>git push origin master # 将本地主分支推到远程主分支</p>
+<p>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</p>
+<p>git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名</p>
+<p>git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支</p>
+<p>git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d &lt;branch&gt;)，然后再push删除远程分支</p>
+<p><strong>Git远程仓库管理</strong></p>
+<p><span style="color: #ffffff;"><em><span class="wp_keywordlink"><a title="GitHub如何运作：时间并不决定一切" href="http://blog.jobbole.com/6492/" target="_blank">GitHub</a></span></em></span></p>
+<p>git remote -v # 查看远程服务器地址和仓库名称</p>
+<p>git remote show origin # 查看远程服务器仓库状态</p>
+<p>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址</p>
+<p>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm &lt;repository&gt; # 删除远程仓库</p>
+<p><strong>创建远程仓库</strong></p>
+<p>git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库</p>
+<p>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上</p>
+<p>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git --bare init # 在服务器创建纯仓库</p>
+<p>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址</p>
+<p>git push -u origin master # 客户端首次提交</p>
+<p>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track</p>
+<p>git remote set-head origin master # 设置远程仓库的HEAD指向master分支</p>
+<p>也可以命令设置跟踪远程库和本地库</p>
+<p>git branch --set-upstream master origin/master</p>
+<p>git branch --set-upstream develop origin/develop</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/vman/tag/Git/">Git</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2940340,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;8d039fe2-6b73-df11-ba8f-001cf0cd104b&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Git常用命令 - Vman - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Git常用命令 - Vman - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/vman/" target="_blank"><img src="./Git常用命令 - Vman - 博客园_files/u138722.jpg" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/vman/">Vman</a><br>
+            <a href="http://home.cnblogs.com/u/vman/followees">关注 - 98</a><br>
+            <a href="http://home.cnblogs.com/u/vman/followers">粉丝 - 31</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;8d039fe2-6b73-df11-ba8f-001cf0cd104b&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2940340,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">25</span>
+    </div>
+    <div class="buryit" onclick="votePost(2940340,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">2</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/vman/archive/2013/02/24/2925444.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/vman/archive/2013/02/24/2925444.html" title="发布于2013-02-24 22:51">折腾weibo开放平台</a><br><a href="http://www.cnblogs.com/vman/archive/2013/03/07/2947961.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/vman/archive/2013/03/07/2947961.html" title="发布于2013-03-07 14:15">java内存模型</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2013-03-02 19:11</span> <a href="http://www.cnblogs.com/vman/">Vman</a> Views(<span id="post_view_count">420221</span>) Comments(<span id="post_comment_count">14</span>) &nbsp;<a href="https://i.cnblogs.com/EditArticles.aspx?postid=2940340" rel="nofollow">Edit</a> <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#" onclick="AddToWz(2940340);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=76600,cb_entryId=2940340,cb_blogApp=currentBlogApp,cb_blogUserGuid='8d039fe2-6b73-df11-ba8f-001cf0cd104b',cb_entryCreatedDate='2013/3/2 19:11:00';loadViewCount(cb_entryId);</script>
+	
+</div>
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">
+    Post Comment</div>
+<div class="feedbackNoItems">
+    </div>
+
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3015047" class="layer">#1楼</a><a name="3015047" id="comment_anchor_3015047"></a> <span class="comment_date">2014-08-22 22:56</span>
+                |
+                <a id="a_comment_author_3015047" href="http://home.cnblogs.com/u/598466/" target="_blank">suyuwen1</a> <a href="http://msg.cnblogs.com/send/suyuwen1" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3015047" class="blog_comment_body">和大家分享一篇不错的文章<br>Git版本控制软件结合GitHub从入门到精通常用命令学习手册<br><a href="http://www.ihref.com/read-16369.html" target="_blank">http://www.ihref.com/read-16369.html</a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3015047,&#39;Digg&#39;,this)">支持(3)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3015047,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3223081" class="layer">#2楼</a><a name="3223081" id="comment_anchor_3223081"></a> <span class="comment_date">2015-07-07 15:40</span>
+                |
+                <a id="a_comment_author_3223081" href="http://www.cnblogs.com/Chen-xy/" target="_blank">君小诺</a> <a href="http://msg.cnblogs.com/send/%E5%90%9B%E5%B0%8F%E8%AF%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3223081" class="blog_comment_body">赞</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3223081,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3223081,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3223081_avatar" style="display:none;">http://pic.cnblogs.com/face/614737/20150625180823.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3225934" class="layer">#3楼</a><a name="3225934" id="comment_anchor_3225934"></a> <span class="comment_date">2015-07-11 14:58</span>
+                |
+                <a id="a_comment_author_3225934" href="http://www.cnblogs.com/alarm1673/" target="_blank">七律断舍离</a> <a href="http://msg.cnblogs.com/send/%E4%B8%83%E5%BE%8B%E6%96%AD%E8%88%8D%E7%A6%BB" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3225934" class="blog_comment_body">大赞</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3225934,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3225934,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3225934_avatar" style="display:none;">http://pic.cnblogs.com/face/778584/20150711142049.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3356729" class="layer">#4楼</a><a name="3356729" id="comment_anchor_3356729"></a> <span class="comment_date">2016-01-30 08:48</span>
+                |
+                <a id="a_comment_author_3356729" href="http://www.cnblogs.com/rexzhao/" target="_blank">rexzhao</a> <a href="http://msg.cnblogs.com/send/rexzhao" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3356729" class="blog_comment_body"># 删除 untracked files<br>git clean -f<br> <br># 连 untracked 的目录也一起删掉<br>git clean -fd<br> <br># 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）<br>git clean -xfd<br> <br># 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删<br>git clean -nxfd<br>git clean -nf<br>git clean -nfd</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3356729,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3356729,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" class="layer">#5楼</a><a name="3451273" id="comment_anchor_3451273"></a> <span class="comment_date">2016-06-13 16:07</span>
+                |
+                <a id="a_comment_author_3451273" href="http://home.cnblogs.com/u/184528/" target="_blank">江南烟雨梦</a> <a href="http://msg.cnblogs.com/send/%E6%B1%9F%E5%8D%97%E7%83%9F%E9%9B%A8%E6%A2%A6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3451273" class="blog_comment_body">弱弱地问一下，哪个命令是把本地代码提交到服务器上去的？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3451273,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3451273,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3456138" class="layer">#6楼</a><a name="3456138" id="comment_anchor_3456138"></a> <span class="comment_date">2016-06-21 14:14</span>
+                |
+                <a id="a_comment_author_3456138" href="http://home.cnblogs.com/u/293134/" target="_blank">放开那个阿姨</a> <a href="http://msg.cnblogs.com/send/%E6%94%BE%E5%BC%80%E9%82%A3%E4%B8%AA%E9%98%BF%E5%A7%A8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3456138" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3451273);">@</a>
+江南烟雨梦<br>git checkout branch<br>git status<br>git pull<br><br>git add .<br>git commit -m 'u'</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3456138,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3456138,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3456139" class="layer">#7楼</a><a name="3456139" id="comment_anchor_3456139"></a> <span class="comment_date">2016-06-21 14:15</span>
+                |
+                <a id="a_comment_author_3456139" href="http://home.cnblogs.com/u/293134/" target="_blank">放开那个阿姨</a> <a href="http://msg.cnblogs.com/send/%E6%94%BE%E5%BC%80%E9%82%A3%E4%B8%AA%E9%98%BF%E5%A7%A8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3456139" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3451273);">@</a>
+江南烟雨梦<br>last:<br>git push</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3456139,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3456139,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3460829" class="layer">#8楼</a><a name="3460829" id="comment_anchor_3460829"></a> <span class="comment_date">2016-06-29 11:31</span>
+                |
+                <a id="a_comment_author_3460829" href="http://www.cnblogs.com/Chen-xy/" target="_blank">君小诺</a> <a href="http://msg.cnblogs.com/send/%E5%90%9B%E5%B0%8F%E8%AF%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3460829" class="blog_comment_body">赞</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3460829,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3460829,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3460829_avatar" style="display:none;">http://pic.cnblogs.com/face/614737/20150625180823.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3477059" class="layer">#9楼</a><a name="3477059" id="comment_anchor_3477059"></a> <span class="comment_date">2016-07-26 16:43</span>
+                |
+                <a id="a_comment_author_3477059" href="http://www.cnblogs.com/jianbanxian/" target="_blank">半仙人</a> <a href="http://msg.cnblogs.com/send/%E5%8D%8A%E4%BB%99%E4%BA%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3477059" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3451273);">@</a>
+江南烟雨梦<br>pull</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3477059,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3477059,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3477059_avatar" style="display:none;">http://pic.cnblogs.com/face/977737/20161217144947.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3477061" class="layer">#10楼</a><a name="3477061" id="comment_anchor_3477061"></a> <span class="comment_date">2016-07-26 16:44</span>
+                |
+                <a id="a_comment_author_3477061" href="http://www.cnblogs.com/jianbanxian/" target="_blank">半仙人</a> <a href="http://msg.cnblogs.com/send/%E5%8D%8A%E4%BB%99%E4%BA%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3477061" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3451273);">@</a>
+江南烟雨梦<br>不是pull是push</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3477061,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3477061,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3477061_avatar" style="display:none;">http://pic.cnblogs.com/face/977737/20161217144947.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3521206" class="layer">#11楼</a><a name="3521206" id="comment_anchor_3521206"></a> <span class="comment_date">2016-09-28 10:05</span>
+                |
+                <a id="a_comment_author_3521206" href="http://home.cnblogs.com/u/979247/" target="_blank">静静到底是谁</a> <a href="http://msg.cnblogs.com/send/%E9%9D%99%E9%9D%99%E5%88%B0%E5%BA%95%E6%98%AF%E8%B0%81" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3521206" class="blog_comment_body">感谢楼主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3521206,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3521206,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3562027" class="layer">#12楼</a><a name="3562027" id="comment_anchor_3562027"></a> <span class="comment_date">2016-11-22 11:23</span>
+                |
+                <a id="a_comment_author_3562027" href="http://www.cnblogs.com/simba-lkj/" target="_blank">苏桃子~</a> <a href="http://msg.cnblogs.com/send/%E8%8B%8F%E6%A1%83%E5%AD%90~" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3562027" class="blog_comment_body">赞</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3562027,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3562027,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3562027_avatar" style="display:none;">http://pic.cnblogs.com/face/1031843/20161014143444.png</span><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3568664" class="layer">#13楼</a><a name="3568664" id="comment_anchor_3568664"></a> <span class="comment_date">2016-11-30 11:28</span>
+                |
+                <a id="a_comment_author_3568664" href="http://home.cnblogs.com/u/652877/" target="_blank">shine亮的昵称</a> <a href="http://msg.cnblogs.com/send/shine%E4%BA%AE%E7%9A%84%E6%98%B5%E7%A7%B0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3568664" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3015047" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3015047);">@</a>
+suyuwen1<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3015047" title="查看引用原文">引用</a></legend>和大家分享一篇不错的文章<br>Git版本控制软件结合GitHub从入门到精通常用命令学习手册<br>http://www.ihref.com/read-16369.html</fieldset><br>这篇文章更加的系统</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3568664,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3568664,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+        <div class="feedbackItem">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    &nbsp;&nbsp;<span class="comment_actions"></span>
+                </div>
+                <a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3644401" class="layer">#14楼</a><a name="3644401" id="comment_anchor_3644401"></a><span id="comment-maxId" style="display:none;">3644401</span><span id="comment-maxDate" style="display:none;">2017/3/18 19:36:34</span> <span class="comment_date">2017-03-18 19:36</span>
+                |
+                <a id="a_comment_author_3644401" href="http://www.cnblogs.com/jcsz/" target="_blank">Miles.Yao</a> <a href="http://msg.cnblogs.com/send/Miles.Yao" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_3644401" class="blog_comment_body"><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#3451273" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3451273);">@</a>
+江南烟雨梦 <br>git push origin master</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3644401,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3644401,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+            </div>
+        </div>
+    
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://click.aliyun.com/m/21970/" target="_blank">【阿里云】云计算科技红利邀您免费体验！云服务器、云数据库等35+产品，6个月免费使用！</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://cn.udacity.com/android/?utm_source=cnbolg&amp;utm_medium=referral&amp;utm_campaign=AND03" target="_blank"><img width="300" height="250" src="./Git常用命令 - Vman - 博客园_files/24442-20170613154413368-1655528381.jpg" alt="Andorid_0613"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/571819/" target="_blank">三星Frame TV起价1999美元</a><br> ·  <a href="http://news.cnblogs.com/n/571818/" target="_blank">德国政府不满于Google处理“被遗忘权” 的做法</a><br> ·  <a href="http://news.cnblogs.com/n/571817/" target="_blank">飞猪推出卢森堡在线签证中心，以后办签证不用跑断腿了？</a><br> ·  <a href="http://news.cnblogs.com/n/571816/" target="_blank">腾讯OMG大调整：门户取消频道制，内容与运营分开</a><br> ·  <a href="http://news.cnblogs.com/n/571815/" target="_blank">亚马逊宣布斥资137亿美元收购全食超市</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="https://www.mtyun.com/activity-anniversary?site=cnblogs&amp;campaign=20170601sales" target="_blank"><img width="468" height="60" src="./Git常用命令 - Vman - 博客园_files/24442-20170615095125603-13625507.png" alt="美团云"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/570194/" target="_blank">小printf的故事：什么是真正的程序员？</a><br> ·  <a href="http://kb.cnblogs.com/page/569992/" target="_blank">程序员的工作、学习与绩效</a><br> ·  <a href="http://kb.cnblogs.com/page/569056/" target="_blank">软件开发为什么很难</a><br> ·  <a href="http://kb.cnblogs.com/page/565901/" target="_blank">唱吧DevOps的落地，微服务CI/CD的范本技术解读</a><br> ·  <a href="http://kb.cnblogs.com/page/566523/" target="_blank">程序员，如何从平庸走向理想？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/vman/">Vman</a><br>园龄：<a href="http://home.cnblogs.com/u/vman/" title="入园时间：2010-06-09">7年</a><br>粉丝：<a href="http://home.cnblogs.com/u/vman/followers/">31</a><br>关注：<a href="http://home.cnblogs.com/u/vman/followees/">98</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;8d039fe2-6b73-df11-ba8f-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">Recent Posts</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/vman/p/6640131.html">1. vSphere 软件组件</a></li><li><a href="http://www.cnblogs.com/vman/articles/5786888.html">2. 各个os下查看FC HBA卡wwn方法</a></li><li><a href="http://www.cnblogs.com/vman/p/5700893.html">3. 【转】Python浅拷贝与深拷贝</a></li><li><a href="http://www.cnblogs.com/vman/p/5699324.html">4. mongostat用法</a></li><li><a href="http://www.cnblogs.com/vman/p/5699320.html">5. mongoperf用法</a></li><li><a href="http://www.cnblogs.com/vman/p/5692672.html">6. mongoperf</a></li><li><a href="http://www.cnblogs.com/vman/p/5670533.html">7. linux后台查看共享内存和消息队列的命令</a></li><li><a href="http://www.cnblogs.com/vman/p/5670456.html">8. 【待整理】MongoDB 数据集</a></li><li><a href="http://www.cnblogs.com/vman/p/5668753.html">9. django小结</a></li><li><a href="http://www.cnblogs.com/vman/p/5638344.html">10. Mac上安装django</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">My Tags</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/vman/tag/mysql/">mysql</a>(4)</li><li><a href="http://www.cnblogs.com/vman/tag/shell/">shell</a>(3)</li><li><a href="http://www.cnblogs.com/vman/tag/linux/">linux</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/Ruby/">Ruby</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/glusterfs/">glusterfs</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/mongoDB/">mongoDB</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/openstack/">openstack</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/php/">php</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/Python/">Python</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/Unix%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Unix网络编程</a>(2)</li><li><a href="http://www.cnblogs.com/vman/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">Post Categories<span style="font-size:11px;font-weight:normal">(78)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/vman/category/334770.html">Cookbook(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/vman/category/717216.html">Glusterfs(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/vman/category/717219.html">Hadoop</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/vman/category/334772.html">Internet(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/vman/category/435526.html">Java(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/vman/category/421798.html">Linux(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/vman/category/717218.html">Nodejs(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/vman/category/863808.html">openstack(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/vman/category/435525.html">Php(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/vman/category/435527.html">Python(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/vman/category/334778.html">Ruby(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/vman/category/334771.html">Shell(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/vman/category/334783.html">Testing(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/vman/category/334776.html">TipStore(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/vman/category/421797.html">web security(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/vman/category/435528.html">Windows(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">Post Archives<span style="font-size:11px;font-weight:normal">(92)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/vman/archive/2017/03.html">2017/3 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/vman/archive/2016/08.html">2016/8 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/vman/archive/2016/07.html">2016/7 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/vman/archive/2016/06.html">2016/6 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/vman/archive/2016/05.html">2016/5 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/vman/archive/2016/04.html">2016/4 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/vman/archive/2016/03.html">2016/3 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/vman/archive/2016/02.html">2016/2 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/vman/archive/2015/12.html">2015/12 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/vman/archive/2015/11.html">2015/11 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/vman/archive/2015/09.html">2015/9 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/vman/archive/2015/04.html">2015/4 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/vman/archive/2013/09.html">2013/9 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/vman/archive/2013/06.html">2013/6 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/vman/archive/2013/05.html">2013/5 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/vman/archive/2013/04.html">2013/4 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/vman/archive/2013/03.html">2013/3 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/vman/archive/2013/02.html">2013/2 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/vman/archive/2013/01.html">2013/1 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/vman/archive/2012/12.html">2012/12 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/vman/archive/2012/11.html">2012/11 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/vman/archive/2012/10.html">2012/10 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/vman/archive/2012/08.html">2012/8 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/vman/archive/2012/07.html">2012/7 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/vman/archive/2012/06.html">2012/6 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/vman/archive/2012/05.html">2012/5 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/vman/archive/2012/04.html">2012/4 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/vman/archive/2012/03.html">2012/3 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/vman/archive/2012/02.html">2012/2 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/vman/archive/2011/12.html">2011/12 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/vman/archive/2011/11.html">2011/11 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/vman/archive/2011/10.html">2011/10 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/vman/archive/2011/09.html">2011/9 (2)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleArchive">
+<h3 class="catListTitle">Article Archives<span style="font-size:11px;font-weight:normal">(23)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/vman/archives/2016/08.html" rel="nofollow">2016年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/vman/archives/2016/07.html" rel="nofollow">2016年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/vman/archives/2016/06.html" rel="nofollow">2016年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/vman/archives/2016/03.html" rel="nofollow">2016年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_4" href="http://www.cnblogs.com/vman/archives/2015/12.html" rel="nofollow">2015年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_5" href="http://www.cnblogs.com/vman/archives/2015/09.html" rel="nofollow">2015年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_6" href="http://www.cnblogs.com/vman/archives/2015/08.html" rel="nofollow">2015年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_7" href="http://www.cnblogs.com/vman/archives/2013/11.html" rel="nofollow">2013年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_8" href="http://www.cnblogs.com/vman/archives/2013/08.html" rel="nofollow">2013年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_9" href="http://www.cnblogs.com/vman/archives/2013/07.html" rel="nofollow">2013年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_10" href="http://www.cnblogs.com/vman/archives/2013/03.html" rel="nofollow">2013年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_11" href="http://www.cnblogs.com/vman/archives/2013/02.html" rel="nofollow">2013年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_12" href="http://www.cnblogs.com/vman/archives/2012/11.html" rel="nofollow">2012年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_13" href="http://www.cnblogs.com/vman/archives/2012/10.html" rel="nofollow">2012年10月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">Recent Comments</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/vman/archive/2013/05/23/3095631.html#3707996">1. Re:MySQL5.1忘记root密码了</a></li>
+        <li class="recent_comment_body">&gt;mysqld –skip-grant-tables<br>这个命令少了一个-号<br>应该是:&gt;mysqld  --skip-grant-tables</li>
+        <li class="recent_comment_author">--贤勇</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/vman/articles/Git_cmds.html#3644401">2. Re:Git常用命令</a></li>
+        <li class="recent_comment_body">@江南烟雨梦 git push origin master...</li>
+        <li class="recent_comment_author">--Miles.Yao</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/vman/p/5699320.html#3569874">3. Re:mongoperf用法</a></li>
+        <li class="recent_comment_body">同样的电脑配置 window下1.1w ops/sec 40MB/sec 但是centos7 上3k ops/sec 20MB/sec ,他们可以对比，为啥差别这么大</li>
+        <li class="recent_comment_author">--苍洱</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/vman/articles/Git_cmds.html#3568664">4. Re:Git常用命令</a></li>
+        <li class="recent_comment_body">@suyuwen1引用和大家分享一篇不错的文章Git版本控制软件结合GitHub从入门到精通常用命令学习手册这篇文章更加的系统...</li>
+        <li class="recent_comment_author">--shine亮的昵称</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/vman/articles/Git_cmds.html#3562027">5. Re:Git常用命令</a></li>
+        <li class="recent_comment_body">赞</li>
+        <li class="recent_comment_author">--苏桃子~</li>
+</ul>
+</div>
+</div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 Vman
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div></div></body></html>

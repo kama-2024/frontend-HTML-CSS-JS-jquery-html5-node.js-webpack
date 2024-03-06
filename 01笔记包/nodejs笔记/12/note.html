@@ -1,0 +1,10 @@
+1》mysql查询数据
+
+	select * from 表名称：查询所有
+	select * from 表名称 where userName=? and userPwd=?
+
+		where==》条件
+
+connection.query('select * from 表名称 where userName=? and userPwd=?',[第一个?,第二个?],(err,results,fields)=>{
+	
+})

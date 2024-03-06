@@ -1,0 +1,30 @@
+react中的生命周期
+
+	1》什么是生命周期？
+
+		其实生命周期是函数，react这个“身体”所经历的几个阶段
+
+		***组件都有生命周期
+
+	2》生命周期都有哪些？
+
+	****渲染》只执行一次
+	componentWillMount : 渲染（render）之前
+	componentDidMount  : 渲染（render）之后
+
+	****修改》
+	componentWillReceiveProps : 父组件如果没有子组件不执行（第一次），有了子组件才会执行
+
+	shouldComponentUpdate ：返回一个布尔值 
+			准备修改吗？需要修改吗？
+	****should返回true
+		componentWillUpdate ：修改之前
+		componentDidUpdate  ：修改之后
+
+	****销毁》
+		componentWillUnmount ：在组件从 DOM 中移除之前立刻被调用。
+
+
+
+
+

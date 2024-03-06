@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class='dropdown' id='toggle_drop'>
+	
+	<button class='btn btn-info' id='dropdown' data-toggle='dropdown'>按钮</button>
+
+	<ul class='dropdown-menu'>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+</div>
+
+
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+
+//$("#dropdown").dropdown();
+
+$("#toggle_drop").on('show.bs.dropdown',function(){
+	alert(1);
+})
+$("#toggle_drop").on('hide.bs.dropdown',function(){
+	alert(2);
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			a {
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">朋友圈</h1>
+		</header>
+
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="http://placehold.it/400x300">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								幸福
+								<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								木屋
+								<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								CBD
+								<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								幸福
+								<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								木屋
+								<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								CBD
+								<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			var str = "";
+			function up(){
+				setTimeout(function(){
+				for(var i=0;i<3;i++){
+					var lis = document.createElement("li");
+					lis.className = 'mui-table-view-cell mui-media';
+					str+='<a href="javascript:;">';
+					str+='<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">';
+					str+='<div class="mui-media-body">'+i+'';
+					str+='<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>';
+					str+='</div>';
+					str+='</a>';
+					lis.innerHTML=str;
+				}
+				 mui(".mui-table-view")[0].appendChild(lis);
+				 mui('#refreshContainer').pullRefresh().endPullupToRefresh();
+				},2000)
+			}
+			function down(){
+				setTimeout(function(){
+				for(var i=0;i<3;i++){
+					var lis = document.createElement("li");
+					lis.className = 'mui-table-view-cell mui-media';
+					str+='<a href="javascript:;">';
+					str+='<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">';
+					str+='<div class="mui-media-body">'+i+'';
+					str+='<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>';
+					str+='</div>';
+					str+='</a>';
+					lis.innerHTML=str;
+				}
+				 mui(".mui-table-view")[0].insertBefore(lis,mui(".mui-table-view")[0].firstChild);
+				 mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+				},2000)
+			}
+			mui.init({
+				pullRefresh: {
+					container: "#refreshContainer", //下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					down: {
+						contentdown: "您的下拉命令可以刷新", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+						contentover: "释放立即刷新", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+						contentrefresh: "正在刷新...", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						callback: down //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					},
+					up:{
+						contentdown: "您的上拉命令可以加载", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+						contentover: "释放立即加载", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+						contentrefresh: "正在加载中...", //可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						callback: up //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

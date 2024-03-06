@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+
+<button type="button" class="btn btn-primary btn-lg" data-target="#myModal" id='modal'>
+  按钮
+</button>
+
+
+<div class="modal fade" id='myModal'>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+
+/*
+$("#modal").click(function(){
+
+    $("#myModal").modal('show');
+
+})
+*/
+$("#modal").click(function(){
+
+    $("#myModal").modal({
+      show:true,
+      keyboard: false
+    });
+
+})
+/*
+$('#myModal').on('hidden.bs.modal', function (e) {
+
+      alert(1); 
+
+})
+*/
+$('#myModal').on('show.bs.modal', function (e) {
+
+      alert('22222'); 
+
+})
+
+
+</script>
+
+</body>
+</html>

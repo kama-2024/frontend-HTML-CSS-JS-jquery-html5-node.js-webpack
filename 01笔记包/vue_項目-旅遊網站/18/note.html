@@ -1,0 +1,40 @@
+一、说明
+
+	{
+      path: '/',      //路径
+      name: 'home',   //名称:基本上做标识或者判断
+      component: Home //对应访问的组件
+    }
+
+二、懒加载
+
+	{
+      path: '/about',
+      name: 'about',
+      component: () => import('./views/About.vue')
+    }
+
+三、路由重定向
+
+	{ 
+      path: '*', 
+      redirect: Home
+    }
+
+四、路由嵌套
+
+	{
+      path: '/about',
+      name: 'about',
+      component: () => import('./views/About.vue'),
+      children:[
+          {
+            path:"/xxx:id",
+            component:Home
+          },
+          {
+            path:"/xxx",
+            component:Home
+          }
+      ]
+    }

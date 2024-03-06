@@ -1,0 +1,38 @@
+1》下载mysql
+
+   下载地址：https://dev.mysql.com/downloads/mysql/
+
+2》工具 ：nacicat premium
+
+3》node连接数据库
+
+	a>在目录中下载mysql包
+
+		npm install mysql
+
+	b>引入mysql
+	c>配置mysql信息
+
+
+		var mysql = require('mysql');
+		var connection = mysql.createConnection({
+		  host     : '主机名',
+		  user     : '用户名',
+		  password : '密码',
+		  database : '库名称',
+		  port     : '端口号'
+		});
+		connection.connect();
+		connection.query('select * from 表名称', function (error, results, fields) {
+		  if (error) throw error;
+		  console.log(results)
+		});
+		connection.end();
+
+
+
+
+
+
+
+

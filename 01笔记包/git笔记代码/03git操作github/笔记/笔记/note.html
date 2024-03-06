@@ -1,0 +1,86 @@
+一 版本控制：
+	version control
+	svn
+	git
+	版本控制：解决多人开发的过程，容易引起文件冲突
+		a---1
+		b---2
+		c---3
+		d---c
+	git版本控制工具
+		git 具有svn的功能
+		git 具有互联网的特性****
+		git 分支
+
+	git 客户端 
+	github 服务器端
+
+二 git的安装和使用：
+	1 安装和配置
+	dos  git --version
+
+	创建全局的账户 和 邮箱：
+		git config --global user.name "user_test"		
+		git config --global user.email "aa@aa.com"
+
+	跳转到d:/web
+		git init 初始化目录
+		.git隐藏目录---》局部使用的目录
+		config
+			name=zhangsan
+			email=zhangsan@qq.com
+
+	2 使用：
+		本地代码:d:/web 编写文件
+		等待提交的列表：
+		本地仓库：git创建的 
+		远程仓库：github
+
+	git status
+	git add 文件名称--》等待列表
+	git commit  提交     -m  "注释信息支持中文"
+
+	3 常用命令：
+		git init 初始化
+		git status 查看状态
+		git add  添加到等待
+		git commit 提交
+	注意：一般情况下，下班的时候 git commit 一天内容提交上去
+
+		git log 查看日志
+		git checkout 文件名称 检出（下载）
+		git show 版本号
+
+		rm 文件名  ---- 删除本地文件
+		git rm 文件名  删除等待区域的文件
+
+	4 分支：
+		git branch 查看分支
+		git branch 分支名称  创建分支
+		git checkout 分支名称  切换分支
+		注意：没做任何操作 默认 主次分支是一样的
+		切换到主分支下才能合并
+		git merge 子分支名称   合并分支
+		git branch -d 子分支名称  删除分支
+
+三 git 和 github
+	推送到远程服务器上	
+		git remote add origin https://github.com/xuyigen1981/testgit.git
+		git push -u origin master 推送到远程的命令
+	加载到本地
+		git clone https://github.com/xuyigen1981/testgit.git
+
+git 和 svn区别：
+	svn 集中式版本控制
+	git 分布式版本控制
+
+
+
+
+
+
+
+
+
+
+

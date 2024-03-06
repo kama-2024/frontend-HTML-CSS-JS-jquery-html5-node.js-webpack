@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  .alert-log{
+    display: none;
+  }
+  </style>
+</head>
+<body>
+
+
+<h1 class='alert alert-danger'>您的输入有误</h1>
+<h1 class='alert alert-success'>您的输入正确</h1>
+
+
+<p class='alert alert-info alert-dismissible'>
+
+  <button class="close" data-dismiss="alert">
+    按钮
+  </button>
+  您的详情
+
+</p>
+
+
+
+<button class='btn btn-info btn-log'>登陆</button>
+
+
+<h1 class='alert alert-success alert-log alert-dismissible'>
+  <button class='close' data-dismiss="alert">
+    
+    <span>&times;</span>
+
+  </button>
+  恭喜您！登陆成功！
+</h1>
+
+
+
+<script src='js/jquery-1.10.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script>
+  $(function(){
+
+
+    $(".btn-log").click(function(){
+
+        $(".alert-log").show(2000);
+
+    })
+
+
+  })
+</script>
+</body>
+</html>

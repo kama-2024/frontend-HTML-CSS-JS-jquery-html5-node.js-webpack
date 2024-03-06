@@ -1,0 +1,31 @@
+1》通过id形式传值
+
+	传值：
+		<Link to='/news/张三'>新闻</Link>
+	接收：
+		this.props.match.params.id
+
+2》通过to形式传值
+
+	传值：
+
+		render:
+			<Link to={{
+				pathname:'/news',
+				query:{
+					strNews:"数据过去没？"
+				}
+			}}>新闻</Link>
+
+			**pathname：路径
+			**query   ：配置项
+		js:
+			this.props.history.push({
+				pathname:'/news',
+				query:{
+					cityName:"北京"
+				}
+			});
+
+	接收：
+		this.props.location.query.strNews

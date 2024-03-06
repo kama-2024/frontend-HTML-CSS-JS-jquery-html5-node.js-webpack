@@ -1,0 +1,22 @@
+.header{
+	background: #000;
+}
+.header h1,.header i{
+	color:#fff;
+}
+.header i{
+	float: right;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color:green;
+}
+.search{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	margin-bottom:0px;
+}
+.search input{
+	background: #fff;
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">好友名称</h1>
+		</header>
+		
+		<div class="mui-content">
+		    
+		    <button class='mui-btn mui-btn-success' id='gallery'>相册</button>
+		    <button class='mui-btn mui-btn-blue' id='camera'>拍照</button>
+		    <div id='galleryImg'></div>
+		    <div id='cameras'></div>
+		    
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				
+				var view = plus.webview.currentWebview();
+				var title = view.title;
+				if(title){
+					mui('.mui-title')[0].innerHTML = title;
+				}else{
+					mui('.mui-title')[0].innerHTML = '未知的';
+				}
+				
+				var gallery = document.getElementById('gallery');
+				gallery.addEventListener('tap',function(){
+					plus.gallery.pick( function(path){
+						
+						for(var i=0;i<path.files.length;i++){
+							var img = document.createElement('img');
+							img.src = path.files[i];
+							img.width = 100;
+							img.height = 100;
+							mui("#galleryImg")[0].appendChild(img);
+						}
+					},function(){},{
+						
+						multiple:true
+						
+					});
+				})
+				
+				
+				var imgSrc = plus.storage.getItem("imgSrc");
+				if(imgSrc){
+					var imgs = document.createElement('img');
+					imgs.width = 100;
+					imgs.height = 100;
+					imgs.src = imgSrc;
+					mui("#cameras")[0].appendChild(imgs);
+				}
+				
+				var camera = document.getElementById('camera');
+				camera.addEventListener('tap',function(){
+					
+					var cameras = plus.camera.getCamera( 1 );
+					cameras.captureImage(function(path){
+						
+						var imgs = document.createElement('img');
+						imgs.width = 100;
+						imgs.height = 100;
+						imgs.src = "file://"+plus.io.convertLocalFileSystemURL( path );
+						mui("#cameras")[0].appendChild(imgs);
+						
+						plus.storage.setItem('imgSrc',"file://"+plus.io.convertLocalFileSystemURL( path ));
+						
+					});
+				})
+			})
+		</script>
+	</body>
+
+</html>

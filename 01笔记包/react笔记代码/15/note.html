@@ -1,0 +1,33 @@
+一、什么是路由：单页面应用
+
+二、简单操作一下路由
+
+	1》下载
+
+		npm install react-router-dom --save
+
+	2》引入（配置）
+
+		import {HashRouter,Route} from 'react-router-dom';
+
+
+		HashRouter : 路由的大组件
+
+			***http://localhost:3000/#/
+
+		BrowserRouter
+
+			***http://localhost:3000/
+
+		Route : 组件的配置项
+
+			path     	:访问的路径
+			component	:对应的组件
+			exact       :控制匹配到路由时不会再向下匹配
+
+		Redirect : 重定向
+
+			to  :跳转到哪个组件
+		
+		Switch  : HashRouter下的唯一子元素
+

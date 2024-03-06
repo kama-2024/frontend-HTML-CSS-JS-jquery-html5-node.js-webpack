@@ -1,0 +1,18 @@
+一、router-view
+
+	keep-alive:
+			1》是什么？
+				vue内置的组件，能在组件切换过程中将状态保存在内存中，防止dom重复渲染
+			2》使用场景
+				把页面保存在内存中，记住输入的内容等操作
+
+			3》使用
+				
+				<keep-alive>
+					<router-view></router-view>
+				</keep-alive>
+			
+			需求：有的页面需要保存，有的不需要
+
+				 include : 包含哪个（name）
+				 exclude ：不包含哪个？(name)

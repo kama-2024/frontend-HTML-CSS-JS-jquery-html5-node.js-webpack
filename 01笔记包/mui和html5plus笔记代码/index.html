@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href='wx.html'>
+				<span class="mui-icon mui-icon-chatbubble"></span>
+				<span class="mui-tab-label">微信</span>
+			</a>
+			<a class="mui-tab-item" href='address.html'>
+				<span class="mui-icon mui-icon-personadd"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" href="find.html">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">发现</span>
+			</a>
+			<a class="mui-tab-item" href='me.html'>
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function(){
+				var page = [
+					'wx.html',
+					'address.html',
+					'find.html',
+					'me.html'
+				];
+				var ws = plus.webview.currentWebview();
+				//当前窗口
+				var styles = {
+					top:"0px",
+					bottom:"50px"
+				};
+				for(var i=0;i<page.length;i++){
+					var item = plus.webview.create(page[i],page[i],styles);
+					//创建4个新窗口
+					item.hide();
+					ws.append(item);
+					//都放入到当前窗口中
+				}
+				plus.webview.show(page[0])
+				mui(".mui-bar-tab").on("tap",'a',function(){
+					var href = this.getAttribute("href");
+					plus.webview.show(href);
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,109 @@
+*{
+	margin:0;
+	padding:0;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+html{
+	font-size:62.5%;
+	background: #fff;
+}
+body{
+	line-height: 1.5;
+	font-size: 1.2rem;
+}
+::selection{
+	background: #b3d4fc;
+}
+a{
+	color:#666;
+	text-decoration: none;
+}
+.clearfix:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*
+	header
+*/
+header{
+	width:100%;
+}
+header .top{
+	background: #555555;
+	line-height: 5rem;
+}
+header .top .top-content{
+	float:left;
+	padding: 0 2rem;
+	color:#aaaaaa;
+}
+header .top .top-content span{
+	padding: 0 1.5rem;
+}
+header .top ul{
+	text-align: right;
+}
+header .top ul li{
+	display: inline-block;
+	padding: 0 1.5rem;
+}
+header .top ul li + li{
+	border-left:1px solid #fff;
+	line-height: 1rem;
+}
+header .top ul li a{
+	display: inline-block;
+	color:#aaaaaa;
+}
+
+header .main{
+	background: #999999;
+}
+header .main .logo{
+	float:left;
+	padding: 2rem 0;
+}
+header .main .logo img{
+	width:257px;
+	height: 56px;
+}
+header .main ul{
+	text-align: right;
+}
+header .main ul li{
+	display: inline-block;
+	padding: 4rem 2rem;
+
+}
+header .main ul li a{
+	display: inline-block;
+	color: #fff;
+	font-size: 1.6rem;
+}
+/*
+	主体
+*/
+
+.container{
+
+	width:100%;
+}
+
+
+/*
+	footer
+*/
+
+footer{
+	width:100%;
+}
+
+
+
+

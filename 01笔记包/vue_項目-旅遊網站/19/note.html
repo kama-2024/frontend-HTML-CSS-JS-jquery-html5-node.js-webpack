@@ -1,0 +1,13 @@
+1》this.$router
+
+2》this.$route
+	1》
+		{
+	      path: '/about/:id',
+	      name: 'about',
+	      component: () => import('./views/About.vue')
+	    }
+	2》
+		<router-link :to="{path:'/about',query:{
+        aaa:123
+     	}}">About</router-link>
