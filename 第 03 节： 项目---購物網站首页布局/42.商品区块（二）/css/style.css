@@ -25,6 +25,7 @@ html,body{
 }
 /*头部*/
 .header{
+	z-index: 999;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -109,5 +110,48 @@ html,body{
 	margin-bottom: 17px;
 }
 .content>a:last-child{
+	margin-right: 0;
+}
+.subject img{
+	width: 556px;
+	height: 276px;
+}
+.good-groip{
+	border-right: 1px solid #f6f6f6;
+}
+.goods{
+	background: #fff;
+	width: 160px;
+	margin: 0 12px;
+	position: relative;
+}
+.goods>img{
+	width: 125px;
+	height: 125px;
+	display: block;
+	margin: 7px auto;
+}
+.goods-title{
+	font-size: 12px;
+	color: #111;
+	height: 36px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.goods-price{
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+}
+.group-price{
+	color: #111;
+	font-size: 16px;
+}
+.price-mark{
+	font-size: 14ox;
+	color: #cbcbcb;
+	text-decoration: line-through;
+}
+.subject:nth-child(2n){
 	margin-right: 0;
 }
